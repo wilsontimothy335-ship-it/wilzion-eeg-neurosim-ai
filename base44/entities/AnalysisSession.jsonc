@@ -1,0 +1,45 @@
+{
+  "name": "AnalysisSession",
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "profile_impact": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "object"
+    },
+    "bands": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "scenario": {
+      "type": "string"
+    },
+    "patient_name": {
+      "type": "string"
+    },
+    "session_date": {
+      "type": "string"
+    },
+    "session_time": {
+      "type": "string"
+    },
+    "profile": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

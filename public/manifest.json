@@ -1,0 +1,9 @@
+{
+  "name": "WILZION EEG NeuroSim AI",
+  "short_name": "NeuroSim",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": []
+}
