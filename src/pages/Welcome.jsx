@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { logActivity } from "@/lib/activity";
+import { localLogout } from "@/lib/auth-env";
 import { STATE_META } from "./neuro/lib/neuro-utils";
 
 const QUOTES = [
@@ -131,7 +132,7 @@ export default function Welcome() {
           </div>
           <div className="flex-1" />
           <button
-            onClick={() => base44.auth.logout()}
+            onClick={localLogout}
             className="px-3 py-1.5 rounded-full text-xs font-semibold text-red-300 border border-red-500/25 bg-red-500/10 cursor-pointer hover:bg-red-500/20 transition-colors"
           >
             Log out

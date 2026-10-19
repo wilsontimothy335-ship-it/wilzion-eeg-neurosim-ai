@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { appParams } from '@/lib/app-params';
+import { localLogout } from '@/lib/auth-env';
 
 const AuthContext = createContext();
 
@@ -107,8 +108,9 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
     
     if (shouldRedirect) {
-      // Use the SDK's logout method which handles token cleanup and redirect
-      base44.auth.logout(window.location.href);
+      // Local logout: avoids Base44's hosted logout redirect, which rejects
+      // unregistered domains (e.g. GitHub Codespaces)
+      localLogout();
     } else {
       // Just remove the token without redirect
       base44.auth.logout();
