@@ -27,4 +27,4 @@ Alternatively use the Base44 CLI: `npm install -g base44@latest`, then `base44 l
 
 - `src/pages/neuro/` – the NeuroSim detector, history and HCI tabs
 - `src/pages/` – login, register, profile, database and admin pages
-- `base44/entities/` – entity schemas; `base44/functions/analyseStat/` – analysis backend function
+- `base44/entities/` – entity schemas; `base44/functions/analyseState/` – analysis backend function
