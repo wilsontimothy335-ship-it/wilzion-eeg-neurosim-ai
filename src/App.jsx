@@ -20,7 +20,7 @@ import AdminMonitor from '@/pages/AdminMonitor';
 import NeuroSim from './pages/neuro/NeuroSim';
 
 const AuthenticatedApp = () => {
-  const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
+  const { isLoadingAuth, isLoadingPublicSettings, authError } = useAuth();
   const navigate = useNavigate();
 
   // Always launch the app on the login page (once per browser session)
@@ -46,11 +46,10 @@ const AuthenticatedApp = () => {
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      // Redirect to login automatically
-      navigateToLogin();
-      return null;
     }
+    // 'auth_required' is handled by the app's own /login page (ProtectedRoute
+    // redirects there). We deliberately do NOT redirect to Base44's hosted login,
+    // which rejects unknown domains such as GitHub Codespaces ("Invalid redirect domain").
   }
 
   // Render the main app
